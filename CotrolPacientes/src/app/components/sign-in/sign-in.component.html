@@ -1,0 +1,54 @@
+
+
+<div class="container">
+
+  <div class="col-lg-4 " style=" margin-left: 30%;
+  margin-top: 10%;
+  padding: 3%;
+  border-radius: 3%; background-color: #ffffffd4;">
+    <img src="https://cdn.pixabay.com/photo/2017/10/08/19/55/cruz-2831364_960_720.png" style=" width:30%" class="rounded mx-auto d-block" >
+    <h5 class="card-title">Inicio de Sesión</h5>
+
+        <form>
+          <div class="form-group ">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Correo Electronico</label>
+              <input type="text" class="form-control" placeholder="" #userName required>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Contraseña</label>
+              <input type="password" class="form-control" placeholder="" #userPassword required>
+            </div>
+
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">Iniciar Sesion</button>
+        </form>
+
+        <div class="container " style="">
+
+
+        <div class="row">
+          <div class="form-group">
+            <button type="button" class="" style="background-color: #f5f5dc00;width: 70%;margin-left: 14%;border: none;"  (click)="authService.GoogleAuth()">
+              <img  style="width: 17%;" src="https://lh3.googleusercontent.com/proxy/npAbdTQewbWbUbF7KE33I_2nsTuXabcKaj04uEuAXziCKg6jfkIF6XlZ9u7c2bUdqseJzzcCjQc4Igxvry8bMI-XKGln4fnvPsH050X-m0eOFjeXq3I" alt="">
+            </button>
+            <small id="emailHelp" class="form-text text-muted">Tambien puedes acceder con tu cuenta de Google.</small>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+</div>
+  </div>
+</div>
