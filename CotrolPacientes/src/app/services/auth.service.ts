@@ -15,9 +15,9 @@ export class AuthService {
   constructor(
     public afs: AngularFirestore,   //  Inyectar Servicio Firestore
     public afAuth: AngularFireAuth, // Inyectar el servicio de autenticación de Firebase
-    public router: Router,  
+    public router: Router,
     public ngZone: NgZone // Servicio NgZone para eliminar la advertencia de alcance externo
-  ) {    
+  ) {
 
     /* Guardar datos de usuario en almacenamiento local cuando
     iniciado sesión y configurando nulo al cerrar sesión*/
@@ -38,6 +38,7 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password).then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
+      //   window.alert("Inicio Exitoso")  ;
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -77,7 +78,7 @@ export class AuthService {
     })
   }
 
-  // Devuelve verdadero cuando el usuario está conectado y 
+  // Devuelve verdadero cuando el usuario está conectado y
   // el correo electrónico está verificado
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -99,7 +100,7 @@ export class AuthService {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
-  // Lógica de autenticación para ejecutar cualquier proveedor de autenticación  
+  // Lógica de autenticación para ejecutar cualquier proveedor de autenticación
   AuthLogin(provider) {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
