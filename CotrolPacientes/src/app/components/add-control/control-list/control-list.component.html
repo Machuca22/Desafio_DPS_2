@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="text-center">
+            Expedientes controles
+        </h6>
+        <table class="table table-sm table-hover">
+            <tbody>
+                <tr>
+                    <th id="idcontrol"></th>
+                    <th>Nombre</th>
+                    <th>DUI</th>
+                    <th>Mascota</th>
+                    <th>Tratamiento</th>
+                    <th>Medicamento</th>
+                    <th>Costo</th>
+                    <th>Descuento</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr *ngFor="let control of controlList">
+                    <td id="idcontrol">{{control.$key}}</td>
+                    <td>{{control.nombre}}</td>
+                    <td>{{control.dui}}</td>
+                    <td>{{control.nmascota}}</td>
+                    <td>{{control.tratamiento}}</td>
+                    <td>{{control.medicamento}}</td>
+                    <td>${{control.costo}}</td>
+                    <td>${{control.descuento}}</td>
+                    <td>
+                        <a class="btn btn-secondary text-white" (click)="onEdit(control)">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger text-white" (click)="onDelete(control.$key)">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
