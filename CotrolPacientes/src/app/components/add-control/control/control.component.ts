@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-//  Service 
+//  Service
 import { ControlService } from '../../../services/control.service';
 // Class
 import { Control } from '../../../models/control';
@@ -59,9 +59,9 @@ export class ControlComponent implements OnInit {
     } else if (cvisitas == 2) {
       this.cdescuento = (this.controlService.selectedControl.costo *0.05)
       this.controlService.selectedControl.costo = (this.controlService.selectedControl.costo) - this.cdescuento;
-      
+
       if (controlForm.value.$key == null)
-      
+
         this.controlService.insertControl(controlForm.value, this.controlService.selectedControl.costo, this.cdescuento);
       else
         this.controlService.updateControl(controlForm.value, this.controlService.selectedControl.costo, this.cdescuento);
@@ -71,7 +71,7 @@ export class ControlComponent implements OnInit {
     } else if (cvisitas >= 6) {
       this.cdescuento = (this.controlService.selectedControl.costo *0.08)
       this.controlService.selectedControl.costo = (this.controlService.selectedControl.costo) - this.cdescuento;
-      
+
       if (controlForm.value.$key == null)
         this.controlService.insertControl(controlForm.value, this.controlService.selectedControl.costo, this.cdescuento);
       else

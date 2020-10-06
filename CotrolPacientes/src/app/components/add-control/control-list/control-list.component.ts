@@ -8,6 +8,13 @@ import { ControlService } from '../../../services/control.service';
 
 import { ToastrService } from 'ngx-toastr';
 
+export interface controlList {
+  $key: string;
+  nombre: string;
+  dui: string;
+  nmascota: string;
+}
+
 @Component({
   selector: 'app-control-list',
   templateUrl: './control-list.component.html',
@@ -15,7 +22,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ControlListComponent implements OnInit {
   controlList: Control[];
-
+   dtOptions: DataTables.Settings = {};
   constructor(
     private controlService: ControlService,
     private toastr: ToastrService
@@ -31,6 +38,13 @@ export class ControlListComponent implements OnInit {
           this.controlList.push(x as Control);
         });
       });
+        console.log(this.controlList);
+      this.dtOptions = {
+          pagingType: 'full_numbers',
+          pageLength: 5,
+        lengthMenu : [5, 10, 25],
+          processing: true
+        };
   }
 
   onEdit(control: Control) {

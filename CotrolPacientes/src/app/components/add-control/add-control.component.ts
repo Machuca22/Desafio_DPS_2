@@ -10,7 +10,15 @@ export class AddControlComponent implements OnInit {
 
   constructor(public authService: AuthService) { }
 
-  ngOnInit(): void {
-  }
+
+  dtOptions: DataTables.Settings = {};
+  ngOnInit() {
+  this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+    lengthMenu : [5, 10, 25],
+      processing: true
+    };
+}
 
 }

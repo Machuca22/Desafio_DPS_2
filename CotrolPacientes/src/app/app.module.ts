@@ -28,6 +28,7 @@ import { ControlService } from './services/control.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import {DataTablesModule} from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     FormsModule,
+     DataTablesModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
